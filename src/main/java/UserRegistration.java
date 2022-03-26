@@ -28,4 +28,18 @@ public class UserRegistration {
             throw new InvalidUserException("Please enter proper message");
         }
     }
+
+    public boolean email(String pattern,String email,String mood) throws InvalidUserException {
+        try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, email))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException("Please enter proper message");
+        }
+    }
 }
