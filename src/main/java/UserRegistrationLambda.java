@@ -45,8 +45,21 @@ public class UserRegistrationLambda {
             throw new InvalidUserException("Please enter proper message");
         }};
 
+        Check phone = (String pattern, String iPhone, String mood) -> {try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, iPhone))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException("Please enter proper message");
+        }};
+
         System.out.println(firstName.check(("^[A-Z]{1}[a-z]{3,}$"),"pranjali","Happy"));
         System.out.println( lastName.check("^[A-Z]{1}[a-z]{3,}$","Khadatkar","Happy"));
         System.out.println( email.check("^[a-zA-Z0-9\\-\\+\\.]+.([a-zA-Z0-9])*@([a-z0-9]+.[a-z]{2,}.([a-z]{2,})?)$","Khadatkar@gmail.com","Happy"));
+        System.out.println(phone.check("^[0-9]{2}[ ]?[0-9]{10}$","918412087844","Happy"));
     }
 }
