@@ -21,6 +21,20 @@ public class UserRegistrationLambda {
             }
         };
 
+        Check lastName = (String pattern, String lname, String mood) -> {try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, lname))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException("Please enter proper message");
+        }};
+
         System.out.println(firstName.check(("^[A-Z]{1}[a-z]{3,}$"),"pranjali","Happy"));
+        System.out.println( lastName.check("^[A-Z]{1}[a-z]{3,}$","Yeggewar","Happy"));
+
     }
 }
