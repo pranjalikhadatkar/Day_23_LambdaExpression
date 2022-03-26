@@ -22,6 +22,5 @@ public class UserRegistrationLambda {
         };
 
         System.out.println(firstName.check(("^[A-Z]{1}[a-z]{3,}$"),"pranjali","Happy"));
-        System.out.println(firstName.check("^[A-Z]{1}[a-z]{3,}$","pranay","Happy"));
     }
 }
