@@ -56,4 +56,18 @@ public class UserRegistration {
             throw new InvalidUserException("Please enter proper message");
         }
     }
+
+    public boolean password(String pattern,String password,String mood) throws InvalidUserException {
+        try {
+            if (mood.equals("Happy")) {
+                if (Pattern.matches(pattern, password))
+                    return true;
+                else
+                    return false;
+            } else
+                return false;
+        }catch (NullPointerException e) {
+            throw new InvalidUserException("Please enter proper message");
+        }
+    }
 }
